@@ -1,0 +1,39 @@
+body{
+    background-color: #6bc3d3;
+}
+
+h3{
+    background-color: #c5e0ff;
+}
+
+li.con{
+    background-color: white;
+    border-bottom: 3px solid #f0cf71; 
+    list-style-type: "\1F1E8\1F1F3";
+}
+
+li.con + li{
+    padding-top: 20px;
+}
+
+li{
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    list-style: none;
+    padding: 5px;
+}
+
+div#zentai {
+    padding-top: 20px;
+	display: grid;
+	grid-template-columns: 1fr;
+    grid-auto-rows: 40px 160px 80px;
+    grid-gap: 10px;
+	width: 200px;
+}
+
+div#zentai > div {
+	margin-left: 5px;
+	background-color: white;
+}
