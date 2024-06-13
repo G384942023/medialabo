@@ -1,0 +1,28 @@
+h1{
+    border: 4px solid red;
+    background-color: #ffd88b;
+
+}
+
+h2{
+    border-bottom: 4px solid red;
+    border-left: 10px groove red;
+    padding-top: 20px;
+}
+
+h3{
+    border-bottom: 2px solid #ff6d3c;
+}
+
+div#zentai {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 250px 250px 250px;
+    grid-gap: 10px;
+	width: 1024px;
+}
+
+div#zentai > div {
+	margin-left: 5px;
+	background-color: #eae5c6;
+}
