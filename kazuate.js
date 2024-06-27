@@ -9,9 +9,6 @@ let kaisu = 0;
 // 将来以下の hantei(); の4回の呼び出しを全て削除する
 // 代わりにここでは，ボタンを押したら hantei() を呼び出すイベント処理をする
 hantei();
-hantei();
-hantei();
-hantei();
 
 // ボタンを押した後の処理をする関数 hantei() の定義
 function hantei() {
@@ -26,7 +23,6 @@ function hantei() {
   if(kaisu<3){
     if(yoso===kotae){
         console.log('正解です．おめでとう!'); 
-        kaisu = 4;
     }else if(yoso<kotae){
         console.log('まちがい．答えはもっと大きいですよ'); 
     }else{
@@ -37,4 +33,23 @@ function hantei() {
 }else{
     console.log('答えは ' + kotae + ' でした．すでにゲームは終わっています'); 
 }
+
+let p1=document.querySelector('span#kaisu'); 
+p1.textContent=kaisu;
+let p2=document.querySelector('span#answer'); 
+p2.textContent=yoso; 
+let p3=document.querySelector('p#result'); 
+if(kaisu<3){
+    if(yoso===kotae){
+        p3.textContent='正解です．おめでとう!'; 
+    }else if(yoso<kotae){
+        p3.textContent='まちがい．答えはもっと大きいですよ'; 
+    }else{
+        p3.textContent='まちがい．答えはもっと小さいですよ'; 
+    }
+}else if(kaisu===3){
+    p3.textContent='まちがい．残念でした答えは ' + kotae + ' です．'; 
+}else{
+    p3.textContent='答えは ' + kotae + ' でした．すでにゲームは終わっています'; 
+} 
 }

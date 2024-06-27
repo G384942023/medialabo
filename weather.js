@@ -53,3 +53,38 @@ console.log(data.main.temp_max);
 console.log(data.main.humidity);
 console.log(data.wind.speed);
 console.log(data.wind.deg);
+//第四回目
+let re = document.querySelector('div#result');
+let p = document.createElement('li');
+p.textContent = data.name;
+re.insertAdjacentElement('beforeend', p);
+
+re = document.querySelector('div#result');
+p = document.createElement('li');
+p.textContent = data.weather[0].description;
+re.insertAdjacentElement('beforeend', p); 
+
+re = document.querySelector('div#result');
+p = document.createElement('li');
+p.textContent = data.main.temp_min;
+re.insertAdjacentElement('beforeend', p); 
+
+re = document.querySelector('div#result');
+p = document.createElement('li');
+p.textContent = data.main.temp_max;
+re.insertAdjacentElement('beforeend', p); 
+
+re = document.querySelector('div#result');
+p = document.createElement('li');
+p.textContent = data.main.humidity;
+re.insertAdjacentElement('beforeend', p); 
+
+re = document.querySelector('div#result');
+p = document.createElement('li');
+p.textContent = data.wind.speed;
+re.insertAdjacentElement('beforeend', p); 
+
+re = document.querySelector('div#result');
+p = document.createElement('li');
+p.textContent = data.wind.deg;
+re.insertAdjacentElement('beforeend', p); 
