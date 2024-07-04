@@ -74,11 +74,15 @@ function hantei() {
     console.log(kaisu + '回目の予想:' + yoso);
 
     let p3=document.querySelector('p#result'); 
-    if(kaisu<4){
+    if(kaisu===3 && yoso != kotae){
+        p3.textContent='まちがい．残念でした答えは ' + kotae + ' です．'; 
+        console.log('まちがい．残念でした答えは ' + kotae + ' です．'); 
+    }
+    else if(kaisu<4){
         if(yoso==kotae){
             p3.textContent='正解です．おめでとう!'; 
             console.log('正解です．おめでとう!'); 
-            kaisu =3
+            kaisu =3;
         }else if(yoso<kotae){
             p3.textContent='まちがい．答えはもっと大きいですよ'; 
             console.log('まちがい．答えはもっと大きいですよ'); 
@@ -86,9 +90,6 @@ function hantei() {
             p3.textContent='まちがい．答えはもっと小さいですよ'; 
             console.log('まちがい．答えはもっと小さいですよ'); 
         }
-    }else if(kaisu===3){
-        p3.textContent='まちがい．残念でした答えは ' + kotae + ' です．'; 
-        console.log('まちがい．残念でした答えは ' + kotae + ' です．'); 
     }else{
         p3.textContent='答えは ' + kotae + ' でした．すでにゲームは終わっています'; 
         console.log('答えは ' + kotae + ' でした．すでにゲームは終わっています'); 
