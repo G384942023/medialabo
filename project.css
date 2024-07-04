@@ -11,10 +11,11 @@ li.con{
     border-bottom: 3px solid #f0cf71; 
     list-style-type: "\1F1E8\1F1F3";
 }
-
+/*
 li.con + li{
     padding-top: 20px;
 }
+    */
 
 li{
     font-family: sans-serif;
@@ -24,16 +25,16 @@ li{
     padding: 5px;
 }
 
-div#zentai {
+div#result {
     padding-top: 20px;
 	display: grid;
 	grid-template-columns: 1fr;
-    grid-auto-rows: 40px 160px 80px;
+    grid-auto-rows: 40px ;
     grid-gap: 10px;
 	width: 200px;
 }
 
-div#zentai > div {
+div#zentai > div#result {
 	margin-left: 5px;
 	background-color: white;
 }

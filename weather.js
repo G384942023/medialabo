@@ -56,35 +56,44 @@ console.log(data.wind.deg);
 //第四回目
 let re = document.querySelector('div#result');
 let p = document.createElement('li');
-p.textContent = data.name;
+p.textContent = "都市名 : " + data.name;
 re.insertAdjacentElement('beforeend', p);
 
 re = document.querySelector('div#result');
 p = document.createElement('li');
-p.textContent = data.weather[0].description;
+p.textContent = "天気 : " + data.weather[0].description;
 re.insertAdjacentElement('beforeend', p); 
 
 re = document.querySelector('div#result');
 p = document.createElement('li');
-p.textContent = data.main.temp_min;
+p.textContent = "最低気温 : " + data.main.temp_min;
 re.insertAdjacentElement('beforeend', p); 
 
 re = document.querySelector('div#result');
 p = document.createElement('li');
-p.textContent = data.main.temp_max;
+p.textContent = "最高気温 : " + data.main.temp_max;
 re.insertAdjacentElement('beforeend', p); 
 
 re = document.querySelector('div#result');
 p = document.createElement('li');
-p.textContent = data.main.humidity;
+p.textContent = "湿度 : " + data.main.humidity;
+re.insertAdjacentElement('beforeend', p); 
+/*
+re = document.querySelector('div#result');
+p = document.createElement('li');
+p.textContent = "風速 : " + data.wind.speed;
 re.insertAdjacentElement('beforeend', p); 
 
 re = document.querySelector('div#result');
 p = document.createElement('li');
-p.textContent = data.wind.speed;
+p.textContent = "風向き : " + data.wind.deg;
 re.insertAdjacentElement('beforeend', p); 
+*/
 
-re = document.querySelector('div#result');
-p = document.createElement('li');
-p.textContent = data.wind.deg;
-re.insertAdjacentElement('beforeend', p); 
+let b1 = document.querySelector('button#city');
+b1.addEventListener('click', kensaku);
+
+function kensaku(){
+  let x = document.querySelector('select#city').value;
+  console.log("検索キー : " + x);
+}
