@@ -1,12 +1,16 @@
 body{
     background-color: #6bc3d3;
+    text-align: center;
+    
 }
 
 h3{
+    font-size: 40px;
     background-color: #c5e0ff;
 }
 
-li.con{
+label{
+    font-size: 20px;
     background-color: white;
     border-bottom: 3px solid #f0cf71; 
     list-style-type: "\1F1E8\1F1F3";
@@ -26,15 +30,14 @@ li{
 }
 
 div#result {
-    padding-top: 20px;
 	display: grid;
 	grid-template-columns: 1fr;
     grid-auto-rows: 40px ;
     grid-gap: 10px;
-	width: 200px;
+	width: 350px;
 }
 
 div#zentai > div#result {
-	margin-left: 5px;
+	margin: 5px auto;
 	background-color: white;
 }

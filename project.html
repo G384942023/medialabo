@@ -4,15 +4,12 @@
     <meta charset="utf-8">
     <title>プロジェクト課題</title>
     <link rel="stylesheet" href="project.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
     <script src="weather.js" defer></script>
   </head>
   <body>
-    <h3>世界の天気（検索結果1件） </h3>
+    <h3>世界の天気 </h3>
    
-    <ul>
-    <li class="con">Beijing</li>
-    </ul>
     <label for="city">気候情報を知りたい都市を選択してください</label>
     <select id="city" name="city">
       <option value="360630">エジプト / カイロ</option>
@@ -28,7 +25,7 @@
       <option value="5128581">アメリカ合衆国 / ニューヨーク</option>
       <option value="5368361">アメリカ合衆国 / ロサンゼルス</option>
     </select>
-    <button id="city">検索</button>
+    <button id="sendRequest">検索</button>
     <div id="zentai">
     <div id="result"></div>
   </div>

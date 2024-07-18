@@ -1,99 +1,83 @@
-let data = {
-  "coord": {
-    "lon": 116.3972,
-    "lat": 39.9075
-  },
-  "weather": [
-    {
-      "id": 803,
-      "main": "Clouds",
-      "description": "曇りがち",
-      "icon": "04d"
-    }
-  ],
-  "base": "stations",
-  "main": {
-    "temp": 9.94,
-    "feels_like": 8.65,
-    "temp_min": 9.94,
-    "temp_max": 9.94,
-    "pressure": 1022,
-    "humidity": 14,
-    "sea_level": 1022,
-    "grnd_level": 1016
-  },
-  "visibility": 10000,
-  "wind": {
-    "speed": 2.65,
-    "deg": 197,
-    "gust": 4.84
-  },
-  "clouds": {
-    "all": 53
-  },
-  "dt": 1646542386,
-  "sys": {
-    "type": 1,
-    "id": 9609,
-    "country": "CN",
-    "sunrise": 1646520066,
-    "sunset": 1646561447
-  },
-  "timezone": 28800,
-  "id": 1816670,
-  "name": "北京市",
-  "cod": 200
-};
 
-////////// 課題3-2 ここからプログラムを書こう
-console.log(data.name);
-console.log(data.weather[0].description); 
-console.log(data.main.temp_min);
-console.log(data.main.temp_max);
-console.log(data.main.humidity);
-console.log(data.wind.speed);
-console.log(data.wind.deg);
-//第四回目
+//print(data);
+
 let re = document.querySelector('div#result');
-let p = document.createElement('li');
-p.textContent = "都市名 : " + data.name;
-re.insertAdjacentElement('beforeend', p);
+let p1 = document.createElement('li');
+let p2 = document.createElement('li');
+let p3 = document.createElement('li');
+let p4 = document.createElement('li');
+let p5 = document.createElement('li');
 
-re = document.querySelector('div#result');
-p = document.createElement('li');
-p.textContent = "天気 : " + data.weather[0].description;
-re.insertAdjacentElement('beforeend', p); 
+function print(data){
+////////// 課題3-2 ここからプログラムを書こう
+console.log('都市名 : ' + data.name);
+console.log('天気 : ' + data.weather[0].description); 
+console.log('最低気温 : ' + data.main.temp_min);
+console.log('最高気温 : ' + data.main.temp_max);
+console.log('湿度 : ' + data.main.humidity);
+//第四回目
+p1.textContent = "都市名 : " + data.name;
+re.insertAdjacentElement('beforeend', p1);
 
-re = document.querySelector('div#result');
-p = document.createElement('li');
-p.textContent = "最低気温 : " + data.main.temp_min;
-re.insertAdjacentElement('beforeend', p); 
+p2.textContent = "天気 : " + data.weather[0].description;
+re.insertAdjacentElement('beforeend', p2); 
 
-re = document.querySelector('div#result');
-p = document.createElement('li');
-p.textContent = "最高気温 : " + data.main.temp_max;
-re.insertAdjacentElement('beforeend', p); 
+p3.textContent = "最低気温 : " + data.main.temp_min + "℃";
+re.insertAdjacentElement('beforeend', p3); 
 
-re = document.querySelector('div#result');
-p = document.createElement('li');
-p.textContent = "湿度 : " + data.main.humidity;
-re.insertAdjacentElement('beforeend', p); 
+p4.textContent = "最高気温 : " + data.main.temp_max + "℃";
+re.insertAdjacentElement('beforeend', p4); 
+
+p5.textContent = "湿度 : " + data.main.humidity + "%";
+re.insertAdjacentElement('beforeend', p5); 
+}
+
 /*
-re = document.querySelector('div#result');
-p = document.createElement('li');
-p.textContent = "風速 : " + data.wind.speed;
-re.insertAdjacentElement('beforeend', p); 
-
-re = document.querySelector('div#result');
-p = document.createElement('li');
-p.textContent = "風向き : " + data.wind.deg;
-re.insertAdjacentElement('beforeend', p); 
-*/
-
 let b1 = document.querySelector('button#city');
 b1.addEventListener('click', kensaku);
 
 function kensaku(){
   let x = document.querySelector('select#city').value;
   console.log("検索キー : " + x);
+}
+*/
+
+let b = document.querySelector('button#sendRequest');
+b.addEventListener('click', sendRequest);
+
+
+// 通信を開始する処理
+function sendRequest() {
+  
+    // URL を設定
+    let id = document.querySelector('select#city').value;
+    let url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/' + id + '.json';
+
+    // 通信開始
+    axios.get(url)
+        .then(showResult)   // 通信成功
+        .catch(showError)   // 通信失敗
+        .then(finish);      // 通信の最後の処理
+}
+
+// 通信が成功した時の処理
+function showResult(resp) {
+    // サーバから送られてきたデータを出力
+    let data = resp.data;
+
+    // data が文字列型なら，オブジェクトに変換する
+    if (typeof data === 'string') {
+        data = JSON.parse(data);
+    }
+    print(data);
+}
+
+// 通信エラーが発生した時の処理
+function showError(err) {
+    console.log(err);
+}
+
+// 通信の最後にいつも実行する処理
+function finish() {
+    console.log('Ajax 通信が終わりました');
 }
